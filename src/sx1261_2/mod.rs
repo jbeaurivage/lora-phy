@@ -295,7 +295,7 @@ where
             BoardType::CustomBoard | BoardType::Stm32l0Sx1276 => {
                 return Err(RadioError::BoardTypeUnsupportedForRadioKind);
             }
-            BoardType::Rak3172Sx1262 => {
+            BoardType::Rak3172Sx1262 | BoardType::WearableAvionicsNimbus => {
                 // uses XTAL instead of TCXO
                 return Ok(());
             }
