@@ -53,7 +53,8 @@ pub struct PacketStatus {
 #[derive(Clone, Copy, PartialEq)]
 #[allow(missing_docs)]
 pub enum BoardType {
-    GenericSx1261, // placeholder for Sx1261-specific features
+    GenericSx1261,          // placeholder for Sx1261-specific features
+    WearableAvionicsNimbus, // TODO remove this and make XOSC/TCXO configurable in another way
     HeltecWifiLoraV31262,
     RpPicoWaveshareSx1262,
     Rak4631Sx1262,
@@ -84,6 +85,7 @@ impl From<BoardType> for ChipType {
             BoardType::Rak3172Sx1262 => ChipType::Sx1262,
             BoardType::Stm32l0Sx1276 => ChipType::Sx1276,
             BoardType::Stm32wlSx1262 => ChipType::Sx1262,
+            BoardType::WearableAvionicsNimbus => ChipType::Sx1262,
         }
     }
 }

@@ -301,7 +301,7 @@ where
             | BoardType::Stm32l0Sx1276
             | BoardType::Stm32wlSx1262 => TcxoCtrlVoltage::Ctrl1V7,
             BoardType::HeltecWifiLoraV31262 => TcxoCtrlVoltage::Ctrl1V8,
-            BoardType::Rak3172Sx1262 => {
+            BoardType::Rak3172Sx1262 | BoardType::WearableAvionicsNimbus => {
                 // uses XTAL instead of TXCO
                 return Ok(());
             }
