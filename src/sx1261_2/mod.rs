@@ -209,6 +209,12 @@ where
         (steps_int << SX126X_PLL_STEP_SHIFT_AMOUNT)
             + (((steps_frac << SX126X_PLL_STEP_SHIFT_AMOUNT) + (SX126X_PLL_STEP_SCALED >> 1)) / SX126X_PLL_STEP_SCALED)
     }
+
+    /// Put the chip in frequency synthesis mode
+    pub async fn do_fs(&mut self) -> Result<(), RadioError> {
+        self.intf.iv.enable_rf_switch_tx().await?;
+        self.intf.write(&[&[OpCode::SetFS.value()]], false).await
+    }
 }
 
 impl<SPI, IV> RadioKind for SX1261_2<SPI, IV>
